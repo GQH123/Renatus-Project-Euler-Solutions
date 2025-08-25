@@ -1,0 +1,156 @@
+#include <bits/stdc++.h>
+#define rep(i, l, r) for (int i = l; i <= r; i++)
+#define per(i, r, l) for (int i = r; i >= l; i--)
+#define srep(i, l, r) for (int i = l; i < r; i++)
+#define sper(i, r, l) for (int i = r; i > l; i--)
+#define erep(i, x) for (int i = h[x]; i; i = e[i].next)
+#define erep2(i, x) for (int& i = cur[x]; i; i = e[i].next)
+#define pii pair<int, int>
+#define pll pair<ll, ll>
+#define pdd pair<double, double>
+#define fi first
+#define se second
+#define ui unsigned int
+#define ld long double
+#define pb push_back
+#define pc putchar
+#define lowbit(x) (x & -x)
+#define maxbuf 2000020
+#define gc() ((p1 == p2 && (p2 = (p1 = buffer) + fread(buffer, 1, maxbuf, stdin), p1 == p2)) ? EOF : *p1++)
+using namespace std;
+
+namespace Fast_Read{
+    char buffer[maxbuf], *p1, *p2;
+    template<class T> void read_signed(T& x){
+        char ch = gc(); x = 0; bool f = 1;
+        while (!isdigit(ch) && ch != '-') ch = gc();
+        if (ch == '-') f = 0, ch = gc();
+        while ('0' <= ch && ch <= '9') x = (x << 1) + (x << 3) + ch - '0', ch = gc();
+        x = (f) ? x : -x;
+    }
+    template<class T, class... Args> void read_signed(T& x, Args&... args){
+        read_signed(x), read_signed(args...);
+    }
+    template<class T> void read_unsigned(T& x){
+        char ch = gc(); x = 0;
+        while (!isdigit(ch)) ch = gc(); 
+        while (isdigit(ch)) x = (x << 1) + (x << 3) + ch - '0', ch = gc(); 
+    }
+    template<class T, class... Args> void read_unsigned(T& x, Args&... args){
+        read_unsigned(x), read_unsigned(args...);
+    }
+    #define isletter(ch) ('0' <= ch && ch <= '9')
+    int read_string(char* s){
+        char ch = gc(); int l = 0;
+        while (!isletter(ch)) ch = gc();
+        while (isletter(ch)) s[l++] = ch, ch = gc();
+        s[l] = '\0'; return l;
+    }
+}using namespace Fast_Read; 
+
+int _num[20];
+template <class T> void write(T x, char sep = '\n'){	
+	if (!x) {putchar('0'), putchar(sep); return;}
+	if (x < 0) putchar('-'), x = -x;
+	int c = 0;
+	while (x) _num[++c] = x % 10, x /= 10;
+	while (c) putchar('0' + _num[c--]); 
+	putchar(sep);
+}
+
+#define read read_signed
+#define reads read_string 
+#define writes puts
+
+#define maxn
+#define maxm
+#define maxs
+#define maxb
+#define inf 
+#define eps
+#define M 
+#define ll long long int 
+#define lowbit(x) (x & -x)
+
+char _sudoku[9][9];
+int sudoku[9][9];
+int col[9], row[9], box[3][3];
+
+void write(int x, int y, int v) {
+    assert(1 <= v && v <= 9);
+    v -= 1;
+    assert((row[x] >> v) & 1);
+    assert((col[y] >> v) & 1);
+    assert((box[x / 3][y / 3] >> v) & 1);
+    row[x] ^= (1 << v);
+    col[y] ^= (1 << v);
+    box[x / 3][y / 3] ^= (1 << v);
+}
+
+bool dfs(int x, int y) {
+    //printf("%d %d\n", x, y);
+    if (x == 9) return true;
+    int _x = x, _y = y + 1;
+    if (_y == 9) _y = 0, _x += 1;
+    if (sudoku[x][y]) {
+        return dfs(_x, _y);
+    }
+    else {
+        int good = row[x] & col[y] & box[x / 3][y / 3];
+        while (good) {
+            int low = lowbit(good);
+            good ^= low;
+            sudoku[x][y] = low << 4;
+            row[x] ^= low;
+            col[y] ^= low;
+            box[x / 3][y / 3] ^= low;
+            if (dfs(_x, _y)) return true;
+            row[x] ^= low;
+            col[y] ^= low;
+            box[x / 3][y / 3] ^= low;
+        }
+        sudoku[x][y] = 0;
+        return false;
+    }
+}
+
+int dep(int x) {
+    int s = 0;
+    while (x) {
+        s += 1;
+        x >>= 1;
+    }
+    return s;
+}
+
+void recover(){ 
+    rep(i, 0, 8) rep(j, 0, 8) {
+        if (sudoku[i][j] > 9) {
+            sudoku[i][j] = dep(sudoku[i][j] >> 4);
+        }
+    }
+}
+
+int main(){
+    int n, sum = 0;
+    read(n);
+    rep(T, 1, n) {
+        rep(i, 1, 9) {
+            int l = reads(_sudoku[i - 1]);
+            assert(l == 9);
+        }
+        rep(i, 0, 8) rep(j, 0, 8) sudoku[i][j] = _sudoku[i][j] - '0';
+        rep(i, 0, 8) row[i] = col[i] = (1 << 9) - 1;
+        rep(i, 0, 2) rep(j, 0, 2) box[i][j] = (1 << 9) - 1;
+        rep(i, 0, 8) rep(j, 0, 8) if (sudoku[i][j]) write(i, j, sudoku[i][j]);
+        assert(dfs(0, 0) == true);
+        recover();
+        printf("Grid %02d\n", T);
+        rep(i, 0, 8) {rep(j, 0, 8) printf("%d", sudoku[i][j]); printf("\n");} printf("\n");
+        
+        sum += 100 * sudoku[0][0] + sudoku[0][1] + sudoku[0][2];
+    }
+    printf("\n%d\n", sum);
+	return 0;
+}
+

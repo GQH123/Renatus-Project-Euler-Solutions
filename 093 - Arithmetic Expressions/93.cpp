@@ -1,0 +1,212 @@
+#include <bits/stdc++.h>
+#define rep(i, l, r) for (int i = l; i <= r; i++)
+#define per(i, r, l) for (int i = r; i >= l; i--)
+#define srep(i, l, r) for (int i = l; i < r; i++)
+#define sper(i, r, l) for (int i = r; i > l; i--)
+#define erep(i, x) for (int i = h[x]; i; i = e[i].next)
+#define erep2(i, x) for (int& i = cur[x]; i; i = e[i].next)
+#define pii pair<int, int>
+#define pll pair<ll, ll>
+#define pdd pair<double, double>
+#define fi first
+#define se second
+#define ui unsigned int
+#define ld long double
+#define pb push_back
+#define pc putchar
+#define lowbit(x) (x & -x)
+#define maxbuf 2000020
+#define gc() ((p1 == p2 && (p2 = (p1 = buffer) + fread(buffer, 1, maxbuf, stdin), p1 == p2)) ? EOF : *p1++)
+using namespace std;
+
+namespace Fast_Read{
+    char buffer[maxbuf], *p1, *p2;
+    template<class T> void read_signed(T& x){
+        char ch = gc(); x = 0; bool f = 1;
+        while (!isdigit(ch) && ch != '-') ch = gc();
+        if (ch == '-') f = 0, ch = gc();
+        while ('0' <= ch && ch <= '9') x = (x << 1) + (x << 3) + ch - '0', ch = gc();
+        x = (f) ? x : -x;
+    }
+    template<class T, class... Args> void read_signed(T& x, Args&... args){
+        read_signed(x), read_signed(args...);
+    }
+    template<class T> void read_unsigned(T& x){
+        char ch = gc(); x = 0;
+        while (!isdigit(ch)) ch = gc(); 
+        while (isdigit(ch)) x = (x << 1) + (x << 3) + ch - '0', ch = gc(); 
+    }
+    template<class T, class... Args> void read_unsigned(T& x, Args&... args){
+        read_unsigned(x), read_unsigned(args...);
+    }
+    #define isletter(ch) ('a' <= ch && ch <= 'z')
+    int read_string(char* s){
+        char ch = gc(); int l = 0;
+        while (!isletter(ch)) ch = gc();
+        while (isletter(ch)) s[l++] = ch, ch = gc();
+        s[l] = '\0'; return l;
+    }
+}using namespace Fast_Read; 
+
+int _num[20];
+template <class T> void write(T x, char sep = '\n'){	
+	if (!x) {putchar('0'), putchar(sep); return;}
+	if (x < 0) putchar('-'), x = -x;
+	int c = 0;
+	while (x) _num[++c] = x % 10, x /= 10;
+	while (c) putchar('0' + _num[c--]); 
+	putchar(sep);
+}
+
+#define read read_signed
+#define reads read_string 
+#define writes puts
+
+#define maxn
+#define maxm
+#define maxs
+#define maxb
+#define inf 
+#define eps
+#define M 
+#define ll long long int 
+
+int ansn = 0;
+vector<int> ansdig;
+vector<int> now, per;
+
+set<int> all;
+struct fact{
+    int x, y;
+    fact(): x(0), y(1){}
+    fact(int x): x(x), y(1){}
+    fact(int x, int y): x(x), y(y){assert(y != 0);}
+    bool operator < (const fact b) const{
+        fact c = fact(x * b.y - y * b.x, y * b.y);
+        c.norm();
+        return c.less_than_zero();
+    }
+    void norm(){
+        assert(y != 0);
+        if (x == 0) {
+            y = 1;
+        }
+        else {
+            if (y < 0) x = -x, y = -y;
+            int d = __gcd(abs(x), abs(y));
+            x /= d, y /= d;
+        }
+    }
+    bool less_than_zero(){
+        norm();
+        return x < 0;
+    }
+    void print(){
+        norm();
+        if (y == 1) printf("%d", x);
+        else printf("%d/%d", x, y);
+    }
+};
+fact operator + (fact a, fact b) {
+    fact res = fact(a.x * b.y + a.y * b.x, a.y * b.y);
+    res.norm();
+    return res;
+}
+fact operator - (fact a, fact b) {
+    fact res = fact(a.x * b.y - a.y * b.x, a.y * b.y);
+    res.norm();
+    return res;
+}
+fact operator * (fact a, fact b) {
+    fact res = fact(a.x * b.x, a.y * b.y);
+    res.norm();
+    return res;
+}
+fact operator / (fact a, fact b) {
+    fact res = fact(a.x * b.y, a.y * b.x);
+    res.norm();
+    return res;
+}
+
+void solve(int l, int r, set<fact>& res){
+    if (l == r) {
+        res.insert(per[l]);
+        return;
+    }
+    srep(k, l, r) {
+        set<fact> left, right;
+        //left.clear(), right.clear();
+        solve(l, k, left);
+        solve(k + 1, r, right);
+        for (auto it1: left) {
+            for (auto it2: right) {
+                res.insert(it1 + it2);
+                res.insert(it1 - it2);
+                res.insert(it1 * it2);
+                if (it2.x != 0) res.insert(it1 / it2);
+            }
+        }
+    }
+    return;
+}
+int play(){
+    all.clear();
+    per = now;
+    set<fact> realall;
+    do{
+        set<fact> res;
+        //res.clear();
+        
+        solve(0, 3, res);
+        for (auto it: res){
+            if (it.y == 1) all.insert(it.x);
+        }
+        for (auto it: res){
+            realall.insert(it);
+        }
+    }while (next_permutation(per.begin(), per.end()));
+    
+    
+    for (auto it: now) printf("%d ", it); printf(":");
+    for (auto it: realall) it.print(), printf(" "); printf("\n\n");
+    
+    int ptr = 1;
+    while (true) {
+        if (!all.count(ptr)) break;
+        ptr += 1;
+    }
+    return ptr - 1;
+}
+
+void dfs(int pos, int rest) {
+    if (10 - pos < rest) return;
+    if (pos == 10 || !rest) {
+        int res = play();
+        if (res > ansn) {
+            ansn = res;
+            ansdig = now;
+        }
+        return;
+    }
+    dfs(pos + 1, rest);
+    now.pb(pos);
+    dfs(pos + 1, rest - 1);
+    now.pop_back();
+}
+
+int main(){
+    dfs(0, 4);
+    printf("%d:", ansn);
+    for (auto it: ansdig) printf(" %d", it); printf("\n");
+    /*
+    per = {3, 1, 2, 4};
+    int i = 1;
+    do{
+        printf("%d:", i++);
+        for (auto it: per) printf(" %d", it);
+        printf("\n");
+    }while (next_permutation(per.begin(), per.end()));
+    */
+	return 0;
+}
+

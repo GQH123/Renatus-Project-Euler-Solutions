@@ -62,7 +62,7 @@ template <class T> void write(T x, char sep = '\n'){
 #define reads read_string 
 #define writes puts
 
-#define maxn 82
+#define maxn
 #define maxm
 #define maxs
 #define maxb
@@ -71,67 +71,46 @@ template <class T> void write(T x, char sep = '\n'){
 #define M 
 #define ll long long int 
 
-int n, m;
-int a[maxn][maxn];
-int lpre[maxn][maxn];
-
-/*
-int dp[maxn][maxn][maxn];
-bool vis[maxn][maxn][maxn];
-int DP(int lay, int l, int r) {
-    if (lay == n + 1) return 0;
-    if (vis[lay][l][r]) return dp[lay][l][r];
-    int& ans = dp[lay][l][r]; ans = 0;
-    vis[lay][l][r] = 1;
-    int layn_bound = 0;
-    if (lay == n) layn_bound = m;
-    rep(_l, 1, r) {
-        rep(_r, max(_l, max(l, layn_bound)), m) {
-            ans = max(ans, lpre[lay][_r] - lpre[lay][_l - 1] + DP(lay + 1, _l, _r));
-        }
-    }
-    return ans;
-}
-*/
-
-inline int value(int id) {
-    return a[(id - 1) / m + 1][(id - 1) % m + 1];
-}
-priority_queue<pii> pq;
-int d[maxn * maxn];
-bool vis[maxn * maxn];
-
-void upd(int x, int op) {
-    if (vis[op]) return;
-    int _d = d[x] + value(op);
-    if (d[op] == -1 || _d < d[op]) d[op] = _d;
-    pq.push(pii(-_d, op));
-}
-
-void Dij(int s){
-    rep(i, 1, n * m) d[i] = -1, vis[i] = 0;
-    d[s] = value(s);
-    pq.push(pii(-d[s], s));
-    while (!pq.empty()) {
-        pii op = pq.top(); pq.pop();
-        int x = op.se;
-        if (vis[x]) continue;
-        vis[x] = 1;
-        if (x % m != 1) upd(x, x - 1);
-        if (x % m != 0) upd(x, x + 1);
-        if ((x - 1) / m != 0) upd(x, x - m);
-        if ((x - 1) / m != n - 1) upd(x, x + m);
-    }
+int check(ll n) {   
+    ll d = n * (n - 1) >> 1;
+    int m = (int)sqrt(d);
+    if (1ll * m * (m + 1) == d) return m + 1;
+    else return -1;
 }
 
 int main(){
-    freopen("p083_matrix.txt", "r", stdin);
-    n = m = 80;
-    rep(i, 1, n) rep(j, 1, m) read(a[i][j]); 
-    //rep(i, 1, n) rep(j, 1, m) lpre[i][j] = lpre[i][j - 1] + a[i][j]; 
-    //printf("%d\n", DP(1, 1, m));
-    Dij(1);
-    printf("%d\n", d[n * m]);
+    /*
+        <<<
+        rep(i, 1, 10000000) {
+            int d = check(i);
+            if (d != -1) printf("%d: %d, %d\n", i, d, i - d);
+        }
+        >>>
+        1: 1, 0
+        4: 3, 1
+        21: 15, 6
+        120: 85, 35
+        697: 493, 204
+        4060: 2871, 1189
+        23661: 16731, 6930
+        137904: 97513, 40391
+        803761: 568345, 235416
+        4684660: 3312555, 1372105
+        ...
+        a_n = 6 * a_{n-1} - a_{n-2} - 2
+        b_n = 6 * b_{n-1} - b_{n-2} - 2
+    */
+    ll n1 = 4, n2 = 1, m1 = 3, m2 = 1;
+    ll bound = 1000000ll * 1000000ll;
+    while (n1 <= bound) {
+        ll _tmpn = n1;
+        ll _tmpm = m1;
+        n1 = 6 * n1 - n2 - 2;
+        m1 = 6 * m1 - m2 - 2;
+        n2 = _tmpn;
+        m2 = _tmpm;
+    }
+    printf("%lld: %lld %lld\n", n, m, n - m);
 	return 0;
 }
 

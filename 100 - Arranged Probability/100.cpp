@@ -62,7 +62,7 @@ template <class T> void write(T x, char sep = '\n'){
 #define reads read_string 
 #define writes puts
 
-#define maxn 82
+#define maxn
 #define maxm
 #define maxs
 #define maxb
@@ -71,36 +71,46 @@ template <class T> void write(T x, char sep = '\n'){
 #define M 
 #define ll long long int 
 
-int n, m, a[maxn][maxn];
-int dp[maxn][maxn][3];
-int vis[maxn][maxn][3];
-int DP(int c, int p, int dir) {
-    if (c == m + 1) return 0;
-    if (vis[c][p][dir]) return dp[c][p][dir];
-    int& ans = dp[c][p][dir];
-    vis[c][p][dir] = 1;
-    ans = 0;
-    if (true){
-        ans = DP(c + 1, p, 0);
-    }
-    if ((dir == 1 || dir == 0) && p != 1) {
-        ans = min(ans, DP(c, p - 1, 1));
-    }
-    if ((dir == 2 || dir == 0) && p != n) {
-        ans = min(ans, DP(c, p + 1, 2));
-    }
-    ans += a[p][c];
-    
-    return ans;
+int check(ll n) {   
+    ll d = n * (n - 1) >> 1;
+    int m = (int)sqrt(d);
+    if (1ll * m * (m + 1) == d) return m + 1;
+    else return -1;
 }
 
 int main(){
-    freopen("p082_matrix.txt", "r", stdin);
-    n = m = 80;
-    rep(i, 1, n) rep(j, 1, m) read(a[i][j]); 
-    int ans = DP(1, 1, 0);
-    rep(p, 2, n) ans = min(ans, DP(1, p, 0));
-    printf("%d\n", ans);
+    /*
+        <<<
+        rep(i, 1, 10000000) {
+            int d = check(i);
+            if (d != -1) printf("%d: %d, %d\n", i, d, i - d);
+        }
+        >>>
+        1: 1, 0
+        4: 3, 1
+        21: 15, 6
+        120: 85, 35
+        697: 493, 204
+        4060: 2871, 1189
+        23661: 16731, 6930
+        137904: 97513, 40391
+        803761: 568345, 235416
+        4684660: 3312555, 1372105
+        ...
+        a_n = 6 * a_{n-1} - a_{n-2} - 2
+        b_n = 6 * b_{n-1} - b_{n-2} - 2
+    */
+    ll n1 = 4, n2 = 1, m1 = 3, m2 = 1;
+    ll bound = 1000000ll * 1000000ll;
+    while (n1 <= bound) {
+        ll _tmpn = n1;
+        ll _tmpm = m1;
+        n1 = 6 * n1 - n2 - 2;
+        m1 = 6 * m1 - m2 - 2;
+        n2 = _tmpn;
+        m2 = _tmpm;
+    }
+    printf("%lld: %lld %lld\n", n1, m1, n1 - m1);
 	return 0;
 }
 
