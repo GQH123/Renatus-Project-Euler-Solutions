@@ -55,8 +55,8 @@ def parse_problem_title(text, problem_id):
 
 # https://projecteuler.net/archives;page=1
 def process_problem_id(path, dir, problem_id, probinfo):
-    if problem_id in probinfo:
-        print(f'{problem_id} already finished and formatted')
+    if problem_id in probinfo and 'title' in probinfo[problem_id]:
+        # print(f'problem {problem_id} already formatted')
         return
     problem_per_page = 50
     text = get_url_text('https://projecteuler.net/archives;page=%d' % math.ceil(problem_id/problem_per_page))
@@ -64,10 +64,15 @@ def process_problem_id(path, dir, problem_id, probinfo):
     src_path = os.path.join(path, dir)
     dst_path = os.path.join(path, '%03d - %s' % (problem_id, title))
     if src_path == dst_path:
-        print(f'problem {problem_id} already formatted')
+        # print(f'problem {problem_id} already formatted')
+        pass
     else:
         system('mv "%s" "%s"' % (src_path, dst_path))
-    probinfo[problem_id] = title
+    
+    if problem_id in probinfo:
+        probinfo[problem_id] = {'title': title, **probinfo[problem_id]}  # place title at the first position
+    else:
+        probinfo[problem_id] = {'title': title}
 
 
 def scan_dirs(path='.'):

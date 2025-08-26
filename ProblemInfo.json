@@ -1,99 +1,482 @@
 {
-    "001": "Multiples of 3 or 5",
-    "002": "Even Fibonacci Numbers",
-    "003": "Largest Prime Factor",
-    "004": "Largest Palindrome Product",
-    "005": "Smallest Multiple",
-    "006": "Sum Square Difference",
-    "007": "10 001st Prime",
-    "008": "Largest Product in a Series",
-    "009": "Special Pythagorean Triplet",
-    "010": "Summation of Primes",
-    "011": "Largest Product in a Grid",
-    "012": "Highly Divisible Triangular Number",
-    "013": "Large Sum",
-    "014": "Longest Collatz Sequence",
-    "015": "Lattice Paths",
-    "016": "Power Digit Sum",
-    "017": "Number Letter Counts",
-    "018": "Maximum Path Sum I",
-    "019": "Counting Sundays",
-    "020": "Factorial Digit Sum",
-    "021": "Amicable Numbers",
-    "022": "Names Scores",
-    "023": "Non-Abundant Sums",
-    "024": "Lexicographic Permutations",
-    "025": "$1000$-digit Fibonacci Number",
-    "026": "Reciprocal Cycles",
-    "027": "Quadratic Primes",
-    "028": "Number Spiral Diagonals",
-    "029": "Distinct Powers",
-    "030": "Digit Fifth Powers",
-    "031": "Coin Sums",
-    "032": "Pandigital Products",
-    "033": "Digit Cancelling Fractions",
-    "034": "Digit Factorials",
-    "035": "Circular Primes",
-    "036": "Double-base Palindromes",
-    "037": "Truncatable Primes",
-    "038": "Pandigital Multiples",
-    "039": "Integer Right Triangles",
-    "040": "Champernowne's Constant",
-    "041": "Pandigital Prime",
-    "042": "Coded Triangle Numbers",
-    "043": "Sub-string Divisibility",
-    "044": "Pentagon Numbers",
-    "045": "Triangular, Pentagonal, and Hexagonal",
-    "046": "Goldbach's Other Conjecture",
-    "047": "Distinct Primes Factors",
-    "048": "Self Powers",
-    "049": "Prime Permutations",
-    "050": "Consecutive Prime Sum",
-    "051": "Prime Digit Replacements",
-    "052": "Permuted Multiples",
-    "053": "Combinatoric Selections",
-    "054": "Poker Hands",
-    "055": "Lychrel Numbers",
-    "056": "Powerful Digit Sum",
-    "057": "Square Root Convergents",
-    "058": "Spiral Primes",
-    "059": "XOR Decryption",
-    "060": "Prime Pair Sets",
-    "061": "Cyclical Figurate Numbers",
-    "062": "Cubic Permutations",
-    "063": "Powerful Digit Counts",
-    "064": "Odd Period Square Roots",
-    "065": "Convergents of $e$",
-    "066": "Diophantine Equation",
-    "067": "Maximum Path Sum II",
-    "068": "Magic 5-gon Ring",
-    "069": "Totient Maximum",
-    "070": "Totient Permutation",
-    "071": "Ordered Fractions",
-    "072": "Counting Fractions",
-    "073": "Counting Fractions in a Range",
-    "074": "Digit Factorial Chains",
-    "075": "Singular Integer Right Triangles",
-    "076": "Counting Summations",
-    "077": "Prime Summations",
-    "078": "Coin Partitions",
-    "079": "Passcode Derivation",
-    "080": "Square Root Digital Expansion",
-    "084": "Monopoly Odds",
-    "085": "Counting Rectangles",
-    "086": "Cuboid Route",
-    "087": "Prime Power Triples",
-    "088": "Product-sum Numbers",
-    "089": "Roman Numerals",
-    "090": "Cube Digit Pairs",
-    "091": "Right Triangles with Integer Coordinates",
-    "092": "Square Digit Chains",
-    "093": "Arithmetic Expressions",
-    "094": "Almost Equilateral Triangles",
-    "095": "Amicable Chains",
-    "096": "Su Doku",
-    "097": "Large Non-Mersenne Prime",
-    "098": "Anagramic Squares",
-    "099": "Largest Exponential",
-    "100": "Arranged Probability"
+    "001": {
+        "title": "Multiples of 3 or 5",
+        "answer": 233168
+    },
+    "002": {
+        "title": "Even Fibonacci Numbers",
+        "answer": 4613732
+    },
+    "003": {
+        "title": "Largest Prime Factor",
+        "answer": 6857
+    },
+    "004": {
+        "title": "Largest Palindrome Product",
+        "answer": 906609
+    },
+    "005": {
+        "title": "Smallest Multiple",
+        "answer": 232792560
+    },
+    "006": {
+        "title": "Sum Square Difference",
+        "answer": 25164150
+    },
+    "007": {
+        "title": "10 001st Prime",
+        "answer": 104743
+    },
+    "008": {
+        "title": "Largest Product in a Series",
+        "answer": 23514624000
+    },
+    "009": {
+        "title": "Special Pythagorean Triplet",
+        "answer": 31875000
+    },
+    "010": {
+        "title": "Summation of Primes",
+        "answer": 142913828922
+    },
+    "011": {
+        "title": "Largest Product in a Grid",
+        "answer": 70600674
+    },
+    "012": {
+        "title": "Highly Divisible Triangular Number",
+        "answer": 76576500
+    },
+    "013": {
+        "title": "Large Sum",
+        "answer": 5537376230
+    },
+    "014": {
+        "title": "Longest Collatz Sequence",
+        "answer": 837799
+    },
+    "015": {
+        "title": "Lattice Paths",
+        "answer": 137846528820
+    },
+    "016": {
+        "title": "Power Digit Sum",
+        "answer": 1366
+    },
+    "017": {
+        "title": "Number Letter Counts",
+        "answer": 21124
+    },
+    "018": {
+        "title": "Maximum Path Sum I",
+        "answer": 1074
+    },
+    "019": {
+        "title": "Counting Sundays",
+        "answer": 171
+    },
+    "020": {
+        "title": "Factorial Digit Sum",
+        "answer": 648
+    },
+    "021": {
+        "title": "Amicable Numbers",
+        "answer": 31626
+    },
+    "022": {
+        "title": "Names Scores",
+        "answer": 871198282
+    },
+    "023": {
+        "title": "Non-Abundant Sums",
+        "answer": 4179871
+    },
+    "024": {
+        "title": "Lexicographic Permutations",
+        "answer": 2783915460
+    },
+    "025": {
+        "title": "$1000$-digit Fibonacci Number",
+        "answer": 4782
+    },
+    "026": {
+        "title": "Reciprocal Cycles",
+        "answer": 983
+    },
+    "027": {
+        "title": "Quadratic Primes",
+        "answer": -59231
+    },
+    "028": {
+        "title": "Number Spiral Diagonals",
+        "answer": 669171001
+    },
+    "029": {
+        "title": "Distinct Powers",
+        "answer": 9183
+    },
+    "030": {
+        "title": "Digit Fifth Powers",
+        "answer": 443839
+    },
+    "031": {
+        "title": "Coin Sums",
+        "answer": 73682
+    },
+    "032": {
+        "title": "Pandigital Products",
+        "answer": 45228
+    },
+    "033": {
+        "title": "Digit Cancelling Fractions",
+        "answer": 100
+    },
+    "034": {
+        "title": "Digit Factorials",
+        "answer": 40730
+    },
+    "035": {
+        "title": "Circular Primes",
+        "answer": 55
+    },
+    "036": {
+        "title": "Double-base Palindromes",
+        "answer": 872187
+    },
+    "037": {
+        "title": "Truncatable Primes",
+        "answer": 748317
+    },
+    "038": {
+        "title": "Pandigital Multiples",
+        "answer": 932718654
+    },
+    "039": {
+        "title": "Integer Right Triangles",
+        "answer": 840
+    },
+    "040": {
+        "title": "Champernowne's Constant",
+        "answer": 210
+    },
+    "041": {
+        "title": "Pandigital Prime",
+        "answer": 7652413
+    },
+    "042": {
+        "title": "Coded Triangle Numbers",
+        "answer": 162
+    },
+    "043": {
+        "title": "Sub-string Divisibility",
+        "answer": 16695334890
+    },
+    "044": {
+        "title": "Pentagon Numbers",
+        "answer": 5482660
+    },
+    "045": {
+        "title": "Triangular, Pentagonal, and Hexagonal",
+        "answer": 1533776805
+    },
+    "046": {
+        "title": "Goldbach's Other Conjecture",
+        "answer": 5777
+    },
+    "047": {
+        "title": "Distinct Primes Factors",
+        "answer": 134043
+    },
+    "048": {
+        "title": "Self Powers",
+        "answer": 9110846700
+    },
+    "049": {
+        "title": "Prime Permutations",
+        "answer": 296962999629
+    },
+    "050": {
+        "title": "Consecutive Prime Sum",
+        "answer": 997651
+    },
+    "051": {
+        "title": "Prime Digit Replacements",
+        "answer": 121313
+    },
+    "052": {
+        "title": "Permuted Multiples",
+        "answer": 142857
+    },
+    "053": {
+        "title": "Combinatoric Selections",
+        "answer": 4075
+    },
+    "054": {
+        "title": "Poker Hands",
+        "answer": 376
+    },
+    "055": {
+        "title": "Lychrel Numbers",
+        "answer": 249
+    },
+    "056": {
+        "title": "Powerful Digit Sum",
+        "answer": 972
+    },
+    "057": {
+        "title": "Square Root Convergents",
+        "answer": 153
+    },
+    "058": {
+        "title": "Spiral Primes",
+        "answer": 26241
+    },
+    "059": {
+        "title": "XOR Decryption",
+        "answer": 129448
+    },
+    "060": {
+        "title": "Prime Pair Sets",
+        "answer": 26033
+    },
+    "061": {
+        "title": "Cyclical Figurate Numbers",
+        "answer": 28684
+    },
+    "062": {
+        "title": "Cubic Permutations",
+        "answer": 127035954683
+    },
+    "063": {
+        "title": "Powerful Digit Counts",
+        "answer": 49
+    },
+    "064": {
+        "title": "Odd Period Square Roots",
+        "answer": 1322
+    },
+    "065": {
+        "title": "Convergents of $e$",
+        "answer": 272
+    },
+    "066": {
+        "title": "Diophantine Equation",
+        "answer": 661
+    },
+    "067": {
+        "title": "Maximum Path Sum II",
+        "answer": 7273
+    },
+    "068": {
+        "title": "Magic 5-gon Ring",
+        "answer": 6531031914842725
+    },
+    "069": {
+        "title": "Totient Maximum",
+        "answer": 510510
+    },
+    "070": {
+        "title": "Totient Permutation",
+        "answer": 8319823
+    },
+    "071": {
+        "title": "Ordered Fractions",
+        "answer": 428570
+    },
+    "072": {
+        "title": "Counting Fractions",
+        "answer": 303963552391
+    },
+    "073": {
+        "title": "Counting Fractions in a Range",
+        "answer": 7295372
+    },
+    "074": {
+        "title": "Digit Factorial Chains",
+        "answer": 402
+    },
+    "075": {
+        "title": "Singular Integer Right Triangles",
+        "answer": 161667
+    },
+    "076": {
+        "title": "Counting Summations",
+        "answer": 190569291
+    },
+    "077": {
+        "title": "Prime Summations",
+        "answer": 71
+    },
+    "078": {
+        "title": "Coin Partitions",
+        "answer": 55374
+    },
+    "079": {
+        "title": "Passcode Derivation",
+        "answer": 73162890
+    },
+    "080": {
+        "title": "Square Root Digital Expansion",
+        "answer": 40886
+    },
+    "081": {
+        "title": "Path Sum: Two Ways",
+        "answer": 427337
+    },
+    "082": {
+        "title": "Path Sum: Three Ways",
+        "answer": 260324
+    },
+    "083": {
+        "title": "Path Sum: Four Ways",
+        "answer": 425185
+    },
+    "084": {
+        "title": "Monopoly Odds",
+        "answer": 101524
+    },
+    "085": {
+        "title": "Counting Rectangles",
+        "answer": 2772
+    },
+    "086": {
+        "title": "Cuboid Route",
+        "answer": 1818
+    },
+    "087": {
+        "title": "Prime Power Triples",
+        "answer": 1097343
+    },
+    "088": {
+        "title": "Product-sum Numbers",
+        "answer": 7587457
+    },
+    "089": {
+        "title": "Roman Numerals",
+        "answer": 743
+    },
+    "090": {
+        "title": "Cube Digit Pairs",
+        "answer": 1217
+    },
+    "091": {
+        "title": "Right Triangles with Integer Coordinates",
+        "answer": 14234
+    },
+    "092": {
+        "title": "Square Digit Chains",
+        "answer": 8581146
+    },
+    "093": {
+        "title": "Arithmetic Expressions",
+        "answer": 1258
+    },
+    "094": {
+        "title": "Almost Equilateral Triangles",
+        "answer": 518408346
+    },
+    "095": {
+        "title": "Amicable Chains",
+        "answer": 14316
+    },
+    "096": {
+        "title": "Su Doku",
+        "answer": 24702
+    },
+    "097": {
+        "title": "Large Non-Mersenne Prime",
+        "answer": 8739992577
+    },
+    "098": {
+        "title": "Anagramic Squares",
+        "answer": 18769
+    },
+    "099": {
+        "title": "Largest Exponential",
+        "answer": 709
+    },
+    "100": {
+        "title": "Arranged Probability",
+        "answer": 756872327473
+    },
+    "101": {
+        "title": "Optimum Polynomial",
+        "answer": 37076114526
+    },
+    "102": {
+        "title": "Triangle Containment",
+        "answer": 228
+    },
+    "103": {
+        "title": "Special Subset Sums: Optimum",
+        "answer": 20313839404245
+    },
+    "104": {
+        "title": "Pandigital Fibonacci Ends",
+        "answer": 329468
+    },
+    "105": {
+        "title": "Special Subset Sums: Testing",
+        "answer": 73702
+    },
+    "106": {
+        "title": "Special Subset Sums: Meta-testing",
+        "answer": 21384
+    },
+    "107": {
+        "title": "Minimal Network",
+        "answer": 259679
+    },
+    "108": {
+        "title": "Diophantine Reciprocals I",
+        "answer": 180180
+    },
+    "109": {
+        "title": "Darts",
+        "answer": 38182
+    },
+    "110": {
+        "title": "Diophantine Reciprocals II",
+        "answer": 9350130049860600
+    },
+    "111": {
+        "title": "Primes with Runs",
+        "answer": 612407567715
+    },
+    "112": {
+        "title": "Bouncy Numbers",
+        "answer": 1587000
+    },
+    "113": {
+        "title": "Non-bouncy Numbers",
+        "answer": 51161058134250
+    },
+    "114": {
+        "title": "Counting Block Combinations I",
+        "answer": 16475640049
+    },
+    "115": {
+        "title": "Counting Block Combinations II",
+        "answer": 168
+    },
+    "116": {
+        "title": "Red, Green or Blue Tiles",
+        "answer": 20492570929
+    },
+    "117": {
+        "title": "Red, Green, and Blue Tiles",
+        "answer": 100808458960497
+    },
+    "118": {
+        "title": "Pandigital Prime Sets",
+        "answer": 44680
+    },
+    "119": {
+        "title": "Digit Power Sum",
+        "answer": 248155780267521
+    },
+    "120": {
+        "title": "Square Remainders",
+        "answer": 333082500
+    }
 }
