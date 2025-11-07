@@ -2,7 +2,6 @@ import os
 # import re
 # import sys
 import json
-import math
 import requests
 from bs4 import BeautifulSoup
 # import pdb
@@ -45,12 +44,25 @@ def get_url_text(url):
             pass
 
 
-def parse_problem_title(text, problem_id):
-    posts = [] 
-    soup = BeautifulSoup(text, features="lxml")
-    # pdb.set_trace()
-    for tag in soup.find_all('a', href="problem=%d" % problem_id):
-        return tag.text
+def get_problem_title(problem_id):
+    # problem_per_page = 50
+    # text = get_url_text('https://projecteuler.net/archives;page=%d' % math.ceil(problem_id/problem_per_page))
+    text = get_url_text('https://projecteuler.net/problem=%d' % int(problem_id))
+    
+    # def parse_problem_title(text, problem_id):
+    #     posts = [] 
+    #     soup = BeautifulSoup(text, features="lxml")
+    #     # pdb.set_trace()
+    #     for tag in soup.find_all('a', href="problem=%d" % problem_id):
+    #         return tag.text
+    
+    def parse_problem_title(text):
+        posts = [] 
+        soup = BeautifulSoup(text, features="lxml")
+        return soup.h2.text
+    
+    title = parse_problem_title(text)
+    return title
 
 
 # https://projecteuler.net/archives;page=1
@@ -58,9 +70,9 @@ def process_problem_id(path, dir, problem_id, probinfo):
     if problem_id in probinfo and 'title' in probinfo[problem_id]:
         # print(f'problem {problem_id} already formatted')
         return
-    problem_per_page = 50
-    text = get_url_text('https://projecteuler.net/archives;page=%d' % math.ceil(problem_id/problem_per_page))
-    title = parse_problem_title(text, problem_id)
+    
+    title = get_problem_title(problem_id)
+    
     src_path = os.path.join(path, dir)
     dst_path = os.path.join(path, '%03d - %s' % (problem_id, title))
     if src_path == dst_path:
@@ -80,18 +92,18 @@ def scan_dirs(path='.'):
         probinfo = {}
     else:
         probinfo = json.load(open(os.path.join(path, probinfo_json)))
-        # convert string keys to integers
-        probinfo = {int(k): v for k, v in probinfo.items()}
     for dir in os.listdir(path):
         problem_id = -1
         try:
-            problem_id = int(dir.split('-')[0].strip())
+            problem_id = dir.split('-')[0].strip()
+            if problem_id.startswith('B'):
+                continue
+            problem_id = '%03d' % int(problem_id)
         except ValueError:
             continue
         process_problem_id(path, dir, problem_id, probinfo)
     # sort probinfo by problem_id
     probinfo = dict(sorted(probinfo.items(), key=lambda x: x[0]))
-    probinfo = {'%03d' % k: v for k, v in probinfo.items()}
     json.dump(probinfo, open(os.path.join(path, probinfo_json), 'w'), indent=4, ensure_ascii=False)
 
 

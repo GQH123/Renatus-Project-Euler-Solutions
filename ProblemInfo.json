@@ -478,5 +478,104 @@
     "120": {
         "title": "Square Remainders",
         "answer": 333082500
+    },
+    "121": {
+        "title": "Disc Game Prize Fund",
+        "answer": 2269
+    },
+    "122": {
+        "title": "Efficient Exponentiation",
+        "answer": 1582
+    },
+    "123": {
+        "title": "Prime Square Remainders",
+        "answer": 21035
+    },
+    "124": {
+        "title": "Ordered Radicals",
+        "answer": 21417
+    },
+    "125": {
+        "title": "Palindromic Sums",
+        "answer": 2906969179
+    },
+    "126": {
+        "title": "Cuboid Layers",
+        "answer": 18522
+    },
+    "127": {
+        "title": "abc-hits",
+        "answer": 18407904
+    },
+    "128": {
+        "title": "Hexagonal Tile Differences",
+        "answer": 14516824220
+    },
+    "129": {
+        "title": "Repunit Divisibility",
+        "answer": 1000023
+    },
+    "130": {
+        "title": "Composites with Prime Repunit Property",
+        "answer": 149253
+    },
+    "131": {
+        "title": "Prime Cube Partnership",
+        "answer": 173
+    },
+    "132": {
+        "title": "Large Repunit Factors",
+        "answer": 843296
+    },
+    "133": {
+        "title": "Repunit Nonfactors",
+        "answer": 453647705
+    },
+    "134": {
+        "title": "Prime Pair Connection",
+        "answer": 18613426663617118
+    },
+    "135": {
+        "title": "Same Differences",
+        "answer": 4989
+    },
+    "136": {
+        "title": "Singleton Difference",
+        "answer": 2544559
+    },
+    "137": {
+        "title": "Fibonacci Golden Nuggets",
+        "answer": 1120149658760
+    },
+    "138": {
+        "title": "Special Isosceles Triangles",
+        "answer": 1118049290473932
+    },
+    "139": {
+        "title": "Pythagorean Tiles",
+        "answer": 10057761
+    },
+    "140": {
+        "title": "Modified Fibonacci Golden Nuggets",
+        "answer": 5673835352990
+    },
+    "141": {
+        "title": "Square Progressive Numbers",
+        "answer": 878454337159
+    },
+    "142": {
+        "title": "Perfect Square Collection",
+        "answer": 1006193
+    },
+    "948": {
+        "title": "Left vs Right",
+        "answer": 1033654680825334184
+    },
+    "955": {
+        "title": "Finding Triangles"
+    },
+    "B03": {
+        "title": "Heegner",
+        "answer": -163
     }
 }

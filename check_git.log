@@ -1,0 +1,89 @@
+Checking directory: /home/renat/workspace/RGB/PROJECTS/MyBusiness/career/XCPC/Project Euler
+File size limit: 100.0 MB
+------------------------------------------------------------
+✓ Git repository detected
+⚠ Git LFS is not installed (recommended for large files)
+
+Searching for large files...
+✓ No files larger than 100.0 MB found
+
+Git Status:
+------------------------------------------------------------
+M .gitignore
+ M ProblemInfo.json
+ M add_answer.py
+ M auto_format.py
+ M utils.py
+?? "121 - Disc Game Prize Fund/"
+?? "122 - Efficient Exponentiation/"
+?? "123 - Prime Square Remainders/"
+?? "124 - Ordered Radicals/"
+?? "125 - Palindromic Sums/"
+?? "126 - Cuboid Layers/"
+?? "127 - abc-hits/"
+?? "128 - Hexagonal Tile Differences/"
+?? "129 - Repunit Divisibility/"
+?? "130 - Composites with Prime Repunit Property/"
+?? "131 - Prime Cube Partnership/"
+?? "132 - Large Repunit Factors/"
+?? "133 - Repunit Nonfactors/"
+?? "134 - Prime Pair Connection/"
+?? "135 - Same Differences/"
+?? "136 - Singleton Difference/"
+?? "137 - Fibonacci Golden Nuggets/"
+?? "138 - Special Isosceles Triangles/"
+?? "139 - Pythagorean Tiles/"
+?? "140 - Modified Fibonacci Golden Nuggets/"
+?? "141 - Square Progressive Numbers/"
+?? "142 - Perfect Square Collection/"
+?? "948 - Left vs Right/"
+?? "955 - Finding Triangles/"
+?? "B03 - Heegner/"
+?? _libs/
+?? check_git.log
+?? check_git.py
+?? check_git.sh
+?? large_files.log
+?? push_git.sh
+?? rush_problem.py
+?? split_large_files.py
+?? undo_git_commit.sh
+
+Untracked Files:
+------------------------------------------------------------
+  121 - Disc Game Prize Fund/121.py
+  122 - Efficient Exponentiation/122.py
+  123 - Prime Square Remainders/123.py
+  124 - Ordered Radicals/124.py
+  125 - Palindromic Sums/125.py
+  126 - Cuboid Layers/126.py
+  127 - abc-hits/127.py
+  128 - Hexagonal Tile Differences/128.py
+  129 - Repunit Divisibility/129.py
+  130 - Composites with Prime Repunit Property/130.py
+  131 - Prime Cube Partnership/131.py
+  132 - Large Repunit Factors/132.py
+  133 - Repunit Nonfactors/133.py
+  134 - Prime Pair Connection/134.py
+  135 - Same Differences/135.py
+  136 - Singleton Difference/136.py
+  137 - Fibonacci Golden Nuggets/137.py
+  138 - Special Isosceles Triangles/138.py
+  139 - Pythagorean Tiles/139.py
+  140 - Modified Fibonacci Golden Nuggets/140.py
+  141 - Square Progressive Numbers/141.py
+  142 - Perfect Square Collection/142.py
+  948 - Left vs Right/948.py
+  955 - Finding Triangles/955.py
+  B03 - Heegner/heegner.py
+  B03 - Heegner/heegner_deprecated.py
+  _libs/alpertron-calculators.zip.00
+  _libs/alpertron-calculators.zip.01
+  check_git.log
+  check_git.py
+  check_git.sh
+  large_files.log
+  push_git.sh
+  rush_problem.py
+  split_large_files.py
+  undo_git_commit.sh

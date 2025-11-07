@@ -1,0 +1,1 @@
+python check_git.py | tee check_git.log
